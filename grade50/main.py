@@ -34,9 +34,9 @@ def main():
                         type=argparse.FileType('r'),
                         default=None,
                         help='jinja2 template for ansi output')
-    parser.add_argument('-V', '--version', action='version',
-                        version=grade50.__version__,
-                        help='output version information and exit')
+    parser.add_argument('-V', '--version',
+                        action='version',
+                        version='%(prog)s ' + grade50.__version__)
 
     _LOG_LEVEL_STRINGS = [logging.ERROR, logging.INFO, logging.DEBUG]
 
