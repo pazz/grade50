@@ -68,6 +68,8 @@ def main():
         for scheck in spart['checks']:
             name = scheck['name']
             rcheck = report[name]
+            # the log entry is a list of strings in check50's report
+            rcheck['log'] = '\n'.join(rcheck['log'])
             points_possible += scheck['points']
             logging.debug(rcheck)
             if rcheck['passed'] == True:
