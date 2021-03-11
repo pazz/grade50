@@ -1,10 +1,10 @@
 MARKS
 ------
 {%- for part in parts %}
-{{ "%2d" | format(part.points)}} (out of {{ "%2s" | format(part.possible)}}) for {{ part.name }}
+{{ "%2d" | format(part.points)}} (out of {{ "%2s" | format(part.points_possible)}}) for {{ part.name }}
 {%- endfor %}
 ==============
-{{ grade }}
+{{ points }}
 
 
 {% for part in parts %}
