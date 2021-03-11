@@ -8,7 +8,7 @@ MARKS
 
 
 {% for part in parts %}
-{%- if part.comments %}
+{% if part.comments %}
 {{ part.name }}
 ---------------
 {%- for c in part.comments %}

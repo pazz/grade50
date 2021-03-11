@@ -18,10 +18,7 @@ DEFAULT_TMPLATE_PATH = os.path.join(
 
 
 def main():
-    helpmsg = """
-    turn the output of `check50 -o json` into plaintext feedback
-    """
-    parser = argparse.ArgumentParser(description=helpmsg)
+    parser = argparse.ArgumentParser(description=grade50.__description__)
     parser.add_argument('-v', '--verbose', action='count', default=0)
     parser.add_argument('scheme', type=argparse.FileType('r'))
     parser.add_argument('report', type=argparse.FileType('r'), default='-')

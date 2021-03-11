@@ -11,7 +11,7 @@ setuptools.setup(
     version=grade50.__version__,
     author="Patrick Totzke",
     author_email="patricktotzke@gmail.com",
-    description="grade student submissions based on check50 json reports",
+    description=grade50.__description__,
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/pazz/grade50",
