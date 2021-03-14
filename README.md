@@ -7,7 +7,8 @@ It allows to grade a student's submission based on check50's json report and a g
 ```
 usage: grade50 [-h] [-v] [-o {ansi,json}] [-t TEMPLATE] [-V] scheme report
 
-turn the output of `check50 -o json` into plaintext feedback
+grade student submissions based on check50 json reports
+
 
 positional arguments:
   scheme
@@ -21,6 +22,12 @@ optional arguments:
   -t TEMPLATE, --template TEMPLATE
                         jinja2 template for ansi output
   -V, --version         output version information and exit
+```
+
+## Installation
+
+```
+pip install grade50
 ```
 
 ## Grading Schemes
@@ -84,6 +91,7 @@ Further, it maps `parts` to a list of dicts, each with
 ### text
 Textual output is the default. It is based on the above and the default template (see `grade50/templates/default.jinja2`).
 You can pass any other jinja2 template as by means of the `--template` option.
+This way one can easily generate for example latex sources that can be compiled into pdf feedback files for students.
 
 
 
