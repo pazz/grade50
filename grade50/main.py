@@ -81,6 +81,9 @@ def main():
                 if 'fail_comment' in scheck:
                     logging.debug(scheck['fail_comment'].format(**rcheck))
                     cmt.append(scheck['fail_comment'].format(**rcheck))
+                else:
+                    cmt.append(rcheck['cause']['rationale'])
+
             else:
                 # null, indicates that the check did not run due to a
                 # dependency failing
