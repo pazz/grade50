@@ -7,7 +7,7 @@ It allows to grade a student's submission based on check50's json report and a g
 ```
 usage: grade50 [-h] [-v] [-o {ansi,json}] [-t TEMPLATE] [-V] scheme report
 
-grade student submissions based on check50 json reports
+grade student submissions based on check50 json reports.
 
 
 positional arguments:
@@ -37,8 +37,8 @@ A check is a dictionary with
 
 - `name` a string, has to appear as check name in the check50 report file. This means our problem set has a check (python function) by that name.
 - `points`, an integer, the number of points given if the check passes. Can be zero.
-- `fail_comment`, a string that will be added as a feedback comment in case the check fails. This may contain variables that will be replaced by the contend of the check50 check. For instance, "{log}" for the logging strings or "{cause[rationale]}" for the rationale in failing checks.
-- `pass_comment`, a string that will be added as a feedback comment in case the check passes. Sometimes it is nice to say "well done for X". :)
+- `fail_comment` (optional), a string that will be added as a feedback comment in case the check fails. This may contain variables that will be replaced by the contend of the check50 check. For instance, "{log}" for the logging strings or "{cause[rationale]}" for the rationale in failing checks. This will default to "{cause[rationale]}" if not given, i.e. the short string produced by check50 on the console if the check fails.
+- `pass_comment` (optional), a string that will be added as a feedback comment in case the check passes. Sometimes it is nice to say "well done for X". This will default to no comment if unset.
 
 ### Example:
 ```yaml
@@ -56,9 +56,8 @@ A check is a dictionary with
   checks:
     - name: caesar_rotate_string_shift_5
       points: 2
-      fail_comment: |
-        Unexpected result when running Caesar(int,String) on "hello" with a shift 5
-        {cause[rationale]}
+      # no fail_comment set. This is equivalent to
+      # fail_comment: {cause[rationale]}
       pass_comment: Your rotation seems to work. Well done!
 
     - name: caesar_many_args
@@ -80,7 +79,7 @@ grade50 can output either plain text or json data for further use in scripts.
 
 ### json
 use `grad50 -o json` to output json data.
-This will be a dictionary mapping `points` and `points_possible` to the total score and total possible score, resp.
+This will be a dictionary mapping `points` and `points_possible` to the total score and total possible score, respectively.
 Further, it maps `parts` to a list of dicts, each with 
 
 - `name`
